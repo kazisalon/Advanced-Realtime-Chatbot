@@ -7,11 +7,7 @@ import os
 from datetime import datetime
 
 class AsyncImageGenerator:
-    def __init__(self, api_token: str):
-        """Initialize the image generator with Hugging Face API token."""
-        self.api_token = api_token
-        self.api_url = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-2"
-        self.headers = {"Authorization": f"Bearer {api_token}"}
+    
         
     async def generate_image(self, prompt: str, output_dir: str = "generated_images") -> Optional[str]:
         """
