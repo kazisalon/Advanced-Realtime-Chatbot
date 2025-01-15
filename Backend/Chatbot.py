@@ -7,30 +7,34 @@ from dotenv import dotenv_values
 env_vars = dotenv_values(".env")
 
 # Get user credentials like username, Assistant name, and API key.
-username = env_vars.get("username")
-AssistantName = env_vars.get("AssistantName")
-GroupAPIKey = env_vars.get("GroupKey")
+Username = env_vars.get("Username")
+Assistantname = env_vars.get("Assistantname")
+GroqAPIKey = env_vars.get("GroqAPIKey")
 
 # Initialize the Groq client using the provided API key.
-client = Groq(api_key=GroupAPIKey)  # Fixed: Removed extra parentheses
+client = Groq(api_key=GroqAPIKey)  # Fixed: Removed extra parentheses
 
 # Initialize an empty list to store chat messages.
 messages = []
 
 # System message that provides context to be of chatbot about its role and behavior.
-system = "*****"
+System = f"""Hello, I am {Username}, You are a very accurate and advanced AI chatbot named {Assistantname} which also has real-time up-to-date information from the internet.
+*** Do not tell time until I ask, do not talk too much, just answer the question.***
+*** Reply in only English, even if the question is in Hindi, reply in English.***
+*** Do not provide notes in the output, just answer the question and never mention your training data. ***
+"""
 
 # Define system chatbot settings.
 SystemChatBot = [
-    {"role": "system", "content": system}
+    {"role": "system", "content": System}
 ]  # Fixed: Corrected variable name case
 
 try:
-    with open(r"Data/ChatLog.json", "r") as f:
+    with open(r"Data\ChatLog.json", "r") as f:
         messages = load(f)  # Load existing messages from the chat log.
 except FileNotFoundError:
     # If the chat log doesn't exist, create an empty JSON file to store chat logs.
-    with open(r"Data/ChatLog.json", "w") as f:
+    with open(r"Data\ChatLog.json", "w") as f:
         dump([], f)
 
 
@@ -67,7 +71,7 @@ def ChatBot(Query):
 
     try:
         # Load the existing chat log from the JSON file.
-        with open(r"Data/ChatLog.json", "r") as f:  # Fixed: Corrected path separator
+        with open(r"Data\ChatLog.json", "r") as f:  # Fixed: Corrected path separator
             messages = load(f)
 
         # Append the user's query to the messages list.
@@ -94,9 +98,7 @@ def ChatBot(Query):
             if chunk.choices[
                 0
             ].delta.content:  # Check if there's content in the current chunk.
-                Answer = (
-                    Answer + chunk.choices[0].delta.content
-                )  # Append the chunk content
+                Answer = chunk.choices[0].delta.content
 
         Answer = Answer.replace(
             "</s>", ""
@@ -106,7 +108,7 @@ def ChatBot(Query):
         messages.append({"role": "assistant", "content": Answer})
 
         # Save the updated chat log to the JSON file.
-        with open(r"Data/ChatLog.json", "w") as f:  # Fixed: Corrected path separator
+        with open(r"Data\ChatLog.json", "w") as f:  # Fixed: Corrected path separator
             dump(messages, f, indent=4)
 
         # Return the formatted Answer
@@ -115,7 +117,7 @@ def ChatBot(Query):
     except Exception as e:
         print(f"Error: {e}")
         # Handle error by updating the exception and resetting the chat log
-        with open(r"Data/ChatLog.json", "w") as f:  # Fixed: Corrected path separator
+        with open(r"Data\ChatLog.json", "w") as f:  # Fixed: Corrected path separator
             dump([], f, indent=4)
         return ChatBot(Query)  # Retry the query after resetting the log.
 
