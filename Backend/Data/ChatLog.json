@@ -174,5 +174,53 @@
     {
         "role": "assistant",
         "content": "Bipin Karki is a Nepali actor, known for his work in Nepali cinema. He has appeared in numerous films and has received several awards for his performances."
+    },
+    {
+        "role": "user",
+        "content": "what is the stock price of apple"
+    },
+    {
+        "role": "assistant",
+        "content": "As of my knowledge cutoff on Thursday, January 16, 2025, 22:46:49, I don't have the real-time stock price of Apple. However, I can suggest checking a financial website or a stock exchange platform for the latest and most accurate information on Apple's stock price."
+    },
+    {
+        "role": "user",
+        "content": "what is the stock price of tata motors"
+    },
+    {
+        "role": "assistant",
+        "content": "As of my knowledge cutoff on Thursday, January 16, 2025, 22:46:54, I can provide you with the real-time stock price of Tata Motors. However, I need to access the search results you provided earlier. According to the search results, the current stock price of Tata Motors is not specified. Please check a financial website or a stock exchange platform for the latest and most accurate information on Tata Motors' stock price."
+    },
+    {
+        "role": "user",
+        "content": "what is the stock price of tata motors"
+    },
+    {
+        "role": "assistant",
+        "content": "I apologize, but I don't have the real-time stock price of Tata Motors. The search results you provided earlier didn't include the stock price of Tata Motors. Please check a financial website or a stock exchange platform for the latest and most accurate information on Tata Motors' stock price."
+    },
+    {
+        "role": "user",
+        "content": "who is ratan tata"
+    },
+    {
+        "role": "assistant",
+        "content": "Ratan Tata is an Indian industrialist, philanthropist, and former chairman of Tata Sons. He is the former chairman of the Tata Group, a Indian multinational conglomerate, and is credited with transforming the company into a global enterprise."
+    },
+    {
+        "role": "user",
+        "content": "whats the time"
+    },
+    {
+        "role": "assistant",
+        "content": "The current time is 22 hours, 58 minutes, and 49 seconds."
+    },
+    {
+        "role": "user",
+        "content": "time in nepal"
+    },
+    {
+        "role": "assistant",
+        "content": "The current time in Nepal is 22 hours, 58 minutes, and 58 seconds."
     }
 ]
