@@ -38,10 +38,6 @@ def open_images(prompt):
             print(f"Unable to open {image_path}. Error: {str(e)}")
 
 
-API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0"
-headers = {"Authorization": f"Bearer {get_key('.env', 'HuggingFaceAPIKey')}"}
-
-
 async def query(payload):
     print(f"Making API request with payload: {payload}")
     try:
